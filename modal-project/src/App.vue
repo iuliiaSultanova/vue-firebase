@@ -1,7 +1,13 @@
 <template>
   <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
-    <button @click="toggleModal">open modal</button>
+    <!-- <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/> -->
+     <Modal theme="sale" @close="toggleModal">
+      <template v-slot:links>
+        <a href="">sign up now</a>
+      </template>
+      <p>some long long long text</p>
+     </Modal>
+    <button @click.alt="toggleModal">open modal (alt)</button>
   </div>
 
 </template>
@@ -16,9 +22,9 @@ export default {
   },
   data() {
     return {
-      title: 'My First Vue App!',
-      heading: 'Sign up for the Givaway!',
-      text: 'Grab your ninja swag for half price!',
+      // title: 'My First Vue App!',
+      // heading: 'Sign up for the Givaway!',
+      // text: 'Grab your ninja swag for half price!',
       showModal: false
     }
   },
